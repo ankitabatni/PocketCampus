@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:text="A verification email has been sent to your email address."
         android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView8"
@@ -25,19 +25,16 @@
         android:layout_marginTop="80dp"
         android:text="Click the button below to re-send the verification mail."
         android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/resend_mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:background="@android:color/holo_purple"
-        android:text="RESend Verfication Email"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp" />
+        android:text="Resend Verfication Email" />
 
     <TextView
         android:id="@+id/textView9"
@@ -45,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="Verified your email ?? Login here .."
         android:textColor="@android:color/black"
         android:textSize="24sp" />
@@ -54,13 +51,10 @@
         android:id="@+id/login_after_verification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:background="@android:color/holo_purple"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
         android:onClick="onButtonClick"
-        android:text="LOGIN"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp" />
+        android:text="LOGIN" />
 
 </LinearLayout>
