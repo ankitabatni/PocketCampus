@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.ankita.pocketcampus.MainActivity">
+
+
+<item
+    android:id="@+id/user_account"
+
+
+    android:title="Account"/>
+<item
+    android:id="@+id/about"
+
+
+    android:title="about"/>
+<item
+    android:id="@+id/logout"
+
+
+    android:title="Logout"/>
+</menu>

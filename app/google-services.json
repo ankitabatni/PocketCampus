@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "310967363301",
+    "firebase_url": "https://pocketcampus-2409d.firebaseio.com",
+    "project_id": "pocketcampus-2409d",
+    "storage_bucket": "pocketcampus-2409d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310967363301:android:9c68d4257ea490b6",
+        "android_client_info": {
+          "package_name": "com.example.ankita.onestopcampus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310967363301-a6gqh9af2j0eif6ird73ku63ijj7in5s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ankita.onestopcampus",
+            "certificate_hash": "e824b5260dc0d83f5cdb607a84ca523566f225ad"
+          }
+        },
+        {
+          "client_id": "310967363301-6k57o062sd74cjtn3a6usb18goutj9jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi5UfA0CtHjMyNiYZnCDfJSeNOXOtpUoE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310967363301-6k57o062sd74cjtn3a6usb18goutj9jp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
