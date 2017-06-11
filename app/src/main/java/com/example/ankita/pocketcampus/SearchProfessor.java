@@ -31,7 +31,7 @@ public class SearchProfessor extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_professor);
-        setTitle("SearchProfessor Professor");
+        setTitle("Search a Professor");
         final  Intent intent = new Intent(this,ViewProfessor.class);
         final List<Professor> profObjectList = new ArrayList<>();
         final List<String> profNameList = new ArrayList<String>();
