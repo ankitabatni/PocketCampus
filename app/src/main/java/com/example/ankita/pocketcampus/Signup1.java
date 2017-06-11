@@ -76,7 +76,7 @@ public class Signup1 extends AppCompatActivity {
                         }
 
                         for(College college : collegeObjectList){
-                            if(college.getCountryName()!=null && college.getCountryName().equals(spinner_country.getSelectedItem().toString())){
+                            if(college.getCountryName()!=null && spinner_country.getSelectedItem()!=null && college.getCountryName().equals(spinner_country.getSelectedItem().toString())){
                                 collegeList.add(college.getCollegeName());
                             }
                         }

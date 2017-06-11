@@ -124,7 +124,7 @@ public class Signup2 extends AppCompatActivity implements View.OnClickListener {
         progressDialog.show();
 
         firebaseAuth.createUserWithEmailAndPassword(email1,password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(Signup2.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
@@ -194,7 +194,6 @@ public class Signup2 extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         if (v==buttonRegister){
             registerUser();
-            sendEmailVerification();
         }
 
     }
