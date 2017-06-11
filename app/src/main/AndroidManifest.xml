@@ -52,7 +52,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".RateProfSearch">
+        <activity android:name=".SearchProfessor">
             <intent-filter>
                 <action android:name="com.example.ankita.onestopcampus.rate" />
 

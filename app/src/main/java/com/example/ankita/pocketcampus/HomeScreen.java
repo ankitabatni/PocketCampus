@@ -35,7 +35,7 @@ import com.google.firebase.auth.FirebaseAuth;
                         startActivity(intent);
                     }
                     if (v.getId() == R.id.button_rate_prof) {
-                        Intent intent = new Intent(this, RateProfSearch.class);
+                        Intent intent = new Intent(this, SearchProfessor.class);
                         startActivity(intent);
                     }
                     if (v.getId() == R.id.button_chat) {
