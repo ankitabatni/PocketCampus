@@ -27,7 +27,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:textAlignment="center"
-                android:textSize="18sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -40,7 +40,7 @@
                 android:text="What is/was your course code?"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -53,7 +53,8 @@
                 android:ems="10"
                 android:hint='I.E. "COEN268"'
                 android:inputType="textPersonName"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/textView13"
@@ -65,7 +66,7 @@
                 android:text="Rate your professor :"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <RatingBar
@@ -90,7 +91,7 @@
                 android:text="How difficult was this professor?"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <SeekBar
@@ -98,7 +99,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginRight="20dp"
+                android:layout_weight="0.11" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -110,7 +112,7 @@
                 android:text="Would you take a course under this professor again?"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -150,7 +152,7 @@
                 android:text="Tell us more about your professor:"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -164,7 +166,8 @@
                 android:ems="10"
                 android:hint="Comments "
                 android:inputType="textMultiLine"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/submitRating_button"
