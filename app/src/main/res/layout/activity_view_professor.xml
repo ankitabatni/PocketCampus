@@ -11,13 +11,16 @@
     android:weightSum="1">
 
 
-    <EditText
-        android:id="@+id/nameOfDepartment_editText"
+    <TextView
+        android:id="@+id/nameOfDepartment_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="0.07"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,16 +42,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="OVERALL RATING"
+                android:textColor="@android:color/background_dark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editText3"
+            <TextView
+                android:id="@+id/textViewRating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="30sp" />
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="36sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -62,16 +66,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="LEVEL OF DIFFICULTY"
+                android:textColor="@android:color/background_dark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editText4"
+            <TextView
+                android:id="@+id/textViewDiffiuty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="30sp" />
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="36sp" />
+
         </LinearLayout>
 
     </LinearLayout>
@@ -95,6 +100,7 @@
         android:layout_marginRight="20dp"
         android:layout_weight="0.07"
         android:text="COMMENTS"
+        android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -110,8 +116,9 @@
             android:orientation="vertical">
 
             <ListView
+                android:id="@+id/commentListView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="201dp" />
         </LinearLayout>
     </ScrollView>
 

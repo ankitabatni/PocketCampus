@@ -21,6 +21,8 @@ public class Rate {
         this.takeCourseAgain = takeCourseAgain;
         this.comment = comment;
     }
+    public Rate() {
+    }
 
     public String getProfId() {
         return profId;

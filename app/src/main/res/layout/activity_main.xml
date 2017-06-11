@@ -8,23 +8,23 @@
     android:orientation="vertical">
 
 
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="314dp"
+        android:layout_marginTop="20dp">
 
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="55dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/new_icon" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="55dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/new_icon"/>
 
-
-</FrameLayout>
+    </FrameLayout>
 
     <Button
         android:id="@+id/button1"

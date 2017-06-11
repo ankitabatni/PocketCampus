@@ -2,6 +2,7 @@ package com.example.ankita.pocketcampus;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import static com.example.ankita.pocketcampus.R.id.profName;
 public class AddProfessor extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
+    private Professor prof;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class AddProfessor extends AppCompatActivity {
             Toast.makeText(AddProfessor.this,"Professor Added Successfully",Toast
                     .LENGTH_SHORT).show();
             Intent intent = new Intent(this, ViewProfessor.class);
+            intent.putExtra("Prof Object", (Parcelable) prof);
             startActivity(intent);
         }
     }
