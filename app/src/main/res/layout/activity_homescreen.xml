@@ -118,7 +118,7 @@
             >
 
             <Button
-                android:id="@+id/button_locate"
+                android:id="@+id/buttonLocate"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"

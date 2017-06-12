@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">OneStopCampus</string>
+    <string name="app_name">PocketCampus</string>
+    <string name="sign_out">Sign Out</string>
+    <string-array name="Options">
+        <item>Home</item>
+        <item>Account</item>
+        <item>Logout</item>
+    </string-array>
+
+    <string name="drawer_open">Open Navigation Drawer</string>
+
+    <string name="drawer_close">Close Navigation Drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_location">Map</string>
+    <string name="event_prompt">Choose an Event type</string>
+    <string-array name="event_arrays">
+        <item>Academic School Events</item>
+        <item>Community Events</item>
+        <item>Free Food Events</item>
+        <item>Individual Events</item>
+    </string-array>
 </resources>

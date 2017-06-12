@@ -46,7 +46,7 @@ tools:context="com.example.ankita.pocketcampus.Event">
         >
 
         <Button
-            android:id="@+id/button_school_event"
+            android:id="@+id/buttonS"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -56,10 +56,11 @@ tools:context="com.example.ankita.pocketcampus.Event">
             android:layout_marginTop="8dp"
             android:background="@drawable/hexagon"
             android:elevation="23dp"
-            android:text="School Events"
+            android:text="SCHOOL EVENTS"
             android:textColor="#FFEBEE"
+            android:onClick="onClick"
             android:textSize="15sp"
-            android:textStyle="italic" />
+            android:textStyle="bold"/>
     </FrameLayout>
 
     <FrameLayout
@@ -70,7 +71,7 @@ tools:context="com.example.ankita.pocketcampus.Event">
         >
 
         <Button
-            android:id="@+id/button_free_food"
+            android:id="@+id/buttonF"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -80,13 +81,13 @@ tools:context="com.example.ankita.pocketcampus.Event">
             android:layout_marginTop="8dp"
             android:background="@drawable/circle2"
             android:elevation="23dp"
-            android:text="Free FOOD"
+            android:text="FREE FOOD"
             android:textColor="#FFEBEE"
+            android:onClick="onClick"
             android:textSize="15sp"
 
-            android:textStyle="italic" />
+            android:textStyle="bold"/>
     </FrameLayout>
-
 
 </LinearLayout>
 
@@ -116,7 +117,7 @@ tools:context="com.example.ankita.pocketcampus.Event">
         >
 
         <Button
-            android:id="@+id/button_community_event"
+            android:id="@+id/buttonC"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -126,11 +127,12 @@ tools:context="com.example.ankita.pocketcampus.Event">
             android:layout_marginTop="8dp"
             android:background="@drawable/circle"
             android:elevation="23dp"
-            android:text="COMMUNITY Events"
+            android:text="COMMUNITY EVENTS"
+            android:onClick="onClick"
             android:textColor="#FFEBEE"
             android:textSize="15sp"
 
-            android:textStyle="italic" />
+            android:textStyle="bold"/>
     </FrameLayout>
 
     <FrameLayout
@@ -142,21 +144,20 @@ tools:context="com.example.ankita.pocketcampus.Event">
 
 
         <Button
-            android:id="@+id/button_individual_event"
+            android:id="@+id/buttonI"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_margin="8dp"
             android:background="@drawable/hexagon2"
+            android:text="INDIVIDUAL EVENTS"
             android:elevation="23dp"
-            android:text="Individual events"
             android:textColor="#FFEBEE"
             android:textSize="15sp"
-            android:textStyle="italic" />
+            android:layout_margin="8dp"
+            android:onClick="onClick"
+            android:textStyle="bold"/>
     </FrameLayout>
 
 
 </LinearLayout>
-
-
 </RelativeLayout>

@@ -42,6 +42,11 @@ import com.google.firebase.auth.FirebaseAuth;
                     Intent intent = new Intent(this, Chat.class);
                     startActivity(intent);
             }
+            if(v.getId()==R.id.buttonLocate)
+            {
+                Intent i2=new Intent(this,Location.class);
+                startActivity(i2);
+            }
                 }
 
         @Override
