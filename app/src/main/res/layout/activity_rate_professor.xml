@@ -27,7 +27,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -40,8 +40,7 @@
                 android:text="What is/was your course code?"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/course_name_editText"
@@ -54,7 +53,7 @@
                 android:hint='I.E. "COEN268"'
                 android:inputType="textPersonName"
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView13"
@@ -66,8 +65,7 @@
                 android:text="Rate your professor :"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
             <RatingBar
                 android:id="@+id/ratingBar"
@@ -91,8 +89,7 @@
                 android:text="How difficult was this professor?"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
             <SeekBar
                 android:id="@+id/seekBar1"
@@ -112,8 +109,7 @@
                 android:text="Would you take a course under this professor again?"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -121,23 +117,38 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
-                <CheckBox
-                    android:id="@+id/checkBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Yes" />
+                    android:orientation="vertical"
+                    android:paddingLeft="60dp">
 
-                <CheckBox
-                    android:id="@+id/checkBox2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:text="Yes" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="No" />
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/checkBox2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:text="No" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -152,8 +163,7 @@
                 android:text="Tell us more about your professor:"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/editTextComments"
@@ -167,7 +177,7 @@
                 android:hint="Comments "
                 android:inputType="textMultiLine"
                 android:textAlignment="center"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/submitRating_button"
