@@ -29,14 +29,12 @@ import java.util.UUID;
 public class Chat extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-
     public static final String ANONYMOUS = "anonymous";
     public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
     public static final int RC_SIGN_IN = 1;
 
     private ListView mMessageListView;
     private MessageAdapter mMessageAdapter;
-    private ProgressBar mProgressBar;
     private ImageButton mPhotoPickerButton;
     private EditText mMessageEditText;
     private Button mSendButton;
@@ -54,6 +52,7 @@ public class Chat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        setTitle("Chat Room");
         mDatabase = FirebaseDatabase.getInstance().getReference();
         messagesDatabaseReference = FirebaseDatabase.getInstance().getReference().child("message");
 
@@ -62,7 +61,6 @@ public class Chat extends AppCompatActivity {
         mUsername = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         // Initialize references to views
-        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mMessageListView = (ListView) findViewById(R.id.messageListView);
         mPhotoPickerButton = (ImageButton) findViewById(R.id.photoPickerButton);
         mMessageEditText = (EditText) findViewById(R.id.messageEditText);
@@ -99,8 +97,7 @@ public class Chat extends AppCompatActivity {
 
             }
         };
-        // Initialize progress bar
-        mProgressBar.setVisibility(ProgressBar.INVISIBLE);
+
 
         // ImagePickerButton shows an image picker to upload a image for a message
         mPhotoPickerButton.setOnClickListener(new View.OnClickListener() {

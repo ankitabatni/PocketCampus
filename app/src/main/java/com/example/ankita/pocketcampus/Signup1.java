@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
 
 import com.example.ankita.pocketcampus.model.College;
@@ -20,9 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.ankita.pocketcampus.R.id.spinnerCollege;
-import static com.example.ankita.pocketcampus.R.id.spinnerCountry;
 
 /**
  * Created by ankita on 5/5/17.
@@ -39,15 +38,19 @@ public class Signup1 extends AppCompatActivity {
         setContentView(R.layout.activity_signup1);
         setTitle("Sign Up Here - Step 2/3");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        final Spinner spinner_country = (Spinner)findViewById(spinnerCountry);
+
+        //Country
+        final AutoCompleteTextView autoCompleteCountry = (AutoCompleteTextView)findViewById(R.id.autoCompleteCountry);
         final List<String> countriesList = new ArrayList<>();
-        final ArrayAdapter<String> country_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, countriesList);
-        spinner_country.setAdapter(country_adapter);
-        final Spinner spinner_college = (Spinner)findViewById(spinnerCollege);
+        final ArrayAdapter<String> country_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, countriesList);
+        autoCompleteCountry.setAdapter(country_adapter);
+
+        //College
+        final AutoCompleteTextView autoCompleteCollege = (AutoCompleteTextView)findViewById(R.id.autoCompleteCollege);
         final List<String> collegeList = new ArrayList<>();
         final List<College> collegeObjectList = new ArrayList<>();
-        final ArrayAdapter<String> college_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, collegeList);
-        spinner_college.setAdapter(college_adapter);
+        final ArrayAdapter<String> college_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, collegeList);
+        autoCompleteCollege.setAdapter(college_adapter);
 
         mDatabase.child("countries").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -58,7 +61,7 @@ public class Signup1 extends AppCompatActivity {
                 }
 
                 country_adapter.notifyDataSetChanged();
-                spinner_college.setSelection(0);
+                //autoCompleteCollege.setSelection(0);
             }
 
             @Override
@@ -76,7 +79,7 @@ public class Signup1 extends AppCompatActivity {
                         }
 
                         for(College college : collegeObjectList){
-                            if(college.getCountryName()!=null && spinner_country.getSelectedItem()!=null && college.getCountryName().equals(spinner_country.getSelectedItem().toString())){
+                            if(college.getCountryName()!=null && autoCompleteCountry.getText()!=null && !autoCompleteCountry.getText().toString().equals("") && college.getCountryName().equals(autoCompleteCountry.getText().toString())){
                                 collegeList.add(college.getCollegeName());
                             }
                         }
@@ -90,29 +93,19 @@ public class Signup1 extends AppCompatActivity {
             }
         });
 
-
-        spinner_country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            int spinner_country_position =  -1;
-
+        autoCompleteCountry.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(spinner_country_position == -1 || spinner_country_position != position){
-                    spinner_country_position = spinner_country.getSelectedItemPosition();
-                    String country_selected = spinner_country.getSelectedItem().toString();
-                    collegeList.clear();
-                    for(College college : collegeObjectList){
-                        if(college.getCountryName()!=null && college.getCountryName().equals(country_selected)){
-                            collegeList.add(college.getCollegeName());
-                        }
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                autoCompleteCollege.setText("");
+
+                String country_selected = autoCompleteCountry.getText().toString();
+                Log.d("Country Selected", country_selected);
+                college_adapter.clear();
+                for(College college : collegeObjectList){
+                    if(college.getCountryName()!=null && college.getCountryName().equals(country_selected)){
+                        college_adapter.add(college.getCollegeName());
                     }
-
-                    college_adapter.notifyDataSetChanged();
                 }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
@@ -122,11 +115,10 @@ public class Signup1 extends AppCompatActivity {
 
         if (v.getId() == R.id.signup1) {
             Intent i1 = new Intent(this, Signup2.class);
-
-            Spinner spinner_country = (Spinner)findViewById(spinnerCountry);
-            String country = spinner_country.getSelectedItem().toString();
-            Spinner spinner_college = (Spinner)findViewById(spinnerCollege);
-            String college = spinner_college.getSelectedItem().toString();
+            AutoCompleteTextView autoCompleteCountry = (AutoCompleteTextView)findViewById(R.id.autoCompleteCountry);
+            String country = autoCompleteCountry.getText().toString();
+            AutoCompleteTextView autoCompleteCollege = (AutoCompleteTextView)findViewById(R.id.autoCompleteCollege);
+            String college = autoCompleteCollege.getText().toString();
             SharedUser.getInstance().setCollege(college);
             SharedUser.getInstance().setCountry(country);
             startActivity(i1);
