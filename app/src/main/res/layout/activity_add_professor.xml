@@ -7,28 +7,36 @@
     android:orientation="vertical"
     tools:context="com.example.ankita.pocketcampus.SearchProfessor"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="81dp"
+    android:weightSum="1">
 
 
     <TextView
         android:id="@+id/heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" Add New Professor"
+        android:text="Add New Professor"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/NameOfSchool"
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteCollege"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="NAME OF SCHOOL"
-        android:inputType="textPersonName" />
+        android:hint="SEARCH A COLLEGE" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteDepartment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:hint="SEARCH A DEPARTMENT" />
 
     <EditText
         android:id="@+id/profName"
@@ -51,23 +59,6 @@
         android:ems="10"
         android:hint="PROFESSOR'S LAST NAME"
         android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="30dp"
-        android:text="Select Department"
-        android:textSize="24sp" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
 
     <Button
         android:id="@+id/submit_buttton"
