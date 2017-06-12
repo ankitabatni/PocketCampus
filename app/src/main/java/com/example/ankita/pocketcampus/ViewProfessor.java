@@ -77,7 +77,7 @@ public class ViewProfessor extends AppCompatActivity {
                         else{
                             remark = "Awesome";
                         }
-                        commentList.add(rate.getRating() +"/ 5        "+remark+"                          " +
+                        commentList.add(rate.getRating() +" / 5        "+remark+"                          " +
                                 ""+rate.getComment());
                         count++;
                     }
@@ -93,9 +93,9 @@ public class ViewProfessor extends AppCompatActivity {
                 }
 
                TextView ratingTextView = (TextView)findViewById(R.id.textViewRating);
-                ratingTextView.setText(""+rating +"/ 5");
+                ratingTextView.setText(""+rating +" / 5");
                 TextView difficultyTextView = (TextView)findViewById(R.id.textViewDiffiuty);
-                difficultyTextView.setText(""+difficultyLevel +"/ 10");
+                difficultyTextView.setText(""+difficultyLevel +" / 10");
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

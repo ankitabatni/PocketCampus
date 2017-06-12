@@ -73,30 +73,7 @@
 
         </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            >
 
-            <Button
-                android:id="@+id/button_notes"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/notes"
-                android:gravity="bottom|center"
-                android:onClick="onClick"
-                android:paddingBottom="7dp"
-                android:text="NOTES"
-                android:textColor="#EEEEEE"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-        </FrameLayout>
 
 
     </LinearLayout>
@@ -154,28 +131,6 @@
                 android:textStyle="bold" />
         </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            >
-
-
-            <Button
-                android:id="@+id/button_accomodation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:background="@drawable/home"
-                android:gravity="bottom|center"
-                android:onClick="onClick"
-                android:paddingBottom="7dp"
-                android:text="ACCOMODATION"
-                android:textColor="#FFFFFF"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-        </FrameLayout>
 
 
     </LinearLayout>
