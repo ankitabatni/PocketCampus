@@ -21,6 +21,11 @@ import com.google.firebase.auth.FirebaseAuth;
         private FirebaseAuth firebaseAuth;
 
         @Override
+        public void onBackPressed() {
+            
+        }
+
+        @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_homescreen);

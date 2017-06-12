@@ -28,6 +28,14 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         private DatabaseReference mDatabase;
 
         private ProgressDialog progressDialog;
+
+
+        @Override
+        public void onBackPressed() {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);

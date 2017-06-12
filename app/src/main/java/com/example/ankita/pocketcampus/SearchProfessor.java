@@ -26,6 +26,12 @@ public class SearchProfessor extends AppCompatActivity {
     private DatabaseReference mDatabase;
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 

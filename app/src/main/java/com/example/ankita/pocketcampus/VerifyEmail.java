@@ -22,6 +22,11 @@ public class VerifyEmail extends AppCompatActivity implements View.OnClickListen
     private static final String TAG = "EmailPassword";
 
     @Override
+    public void onBackPressed() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_email);

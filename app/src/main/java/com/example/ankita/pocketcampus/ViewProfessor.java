@@ -31,6 +31,13 @@ public class ViewProfessor extends AppCompatActivity {
     int count = 0;
     String remark = "";
     Professor prof;
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, SearchProfessor.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
