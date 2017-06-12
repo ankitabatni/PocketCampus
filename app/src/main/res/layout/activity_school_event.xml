@@ -1,60 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-tools:context="com.example.ankita.pocketcampus.SchoolEvent"
-    >
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/back"
-        android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.ankita.pocketcampus.SchoolEvent"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp"
+    android:weightSum="1"
+    android:background="@android:color/background_light">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Event Name:Commencement 2017!"
-            android:textStyle="bold"
-            android:textSize="24sp"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Event Date:06/15/2017 Time: 9am to 2am"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="20dp"
-            android:text="Event Details:Dear students join us to congratulate and applaud all the successful students! "
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"/>
-    </LinearLayout>
 
     <Button
         android:id="@+id/SchoolButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:layout_margin="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_gravity="bottom"
-        android:text="Post New Event"
+        android:layout_weight="0.07"
         android:onClick="onClick"
-        />
+        android:text="Post New Event" />
+
+    <ListView
+        android:id="@+id/schoolEventListView"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20dp"
+        android:layout_weight=".9"
+        android:background="@android:color/background_light"
+        android:divider="@android:color/background_light"
+        android:dividerHeight="20dp"
+        android:isScrollContainer="false"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:scrollbarStyle="outsideOverlay" />
+
+
 </LinearLayout>
-</ScrollView>
+
+
+
