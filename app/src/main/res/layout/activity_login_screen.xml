@@ -8,8 +8,8 @@
     android:background="@android:color/background_light"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp"
-    android:orientation="vertical">
-    tools:context="com.example.ankita.onestopcampus.LoginScreen">
+    android:orientation="vertical"
+    tools:context="com.scu.pocketcampus.LoginScreen">
 
     <EditText
         android:id="@+id/TFUsername"

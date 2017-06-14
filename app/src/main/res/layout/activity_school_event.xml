@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.ankita.pocketcampus.SchoolEvent"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="81dp"
     android:weightSum="1"
-    android:background="@android:color/background_light">
+    tools:context="com.scu.pocketcampus.SchoolEvent"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
 
 
     <Button
@@ -29,10 +28,11 @@
         android:layout_height="fill_parent"
         android:layout_marginTop="20dp"
         android:layout_weight=".9"
-        android:background="@android:color/background_light"
-        android:divider="@android:color/background_light"
+        android:clipToPadding="false"
+        android:divider="#EEEEEE"
         android:dividerHeight="20dp"
         android:isScrollContainer="false"
+        android:paddingBottom="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:scrollbarStyle="outsideOverlay" />
