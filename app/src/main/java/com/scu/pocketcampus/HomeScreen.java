@@ -36,7 +36,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
         public void onClick(View v) {
                     if (v.getId() == R.id.button_event) {
-                        Intent intent = new Intent(this, Event.class);
+                        Intent intent = new Intent(this, EventScreen.class);
                         startActivity(intent);
                     }
                     if (v.getId() == R.id.button_rate_prof) {

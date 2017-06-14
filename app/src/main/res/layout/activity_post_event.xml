@@ -8,75 +8,135 @@ android:layout_height="match_parent"
 tools:context="com.scu.pocketcampus.PostEvent"
 android:orientation="vertical">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    android:text="Event Type: "
-    android:textSize="20sp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-<Spinner
-    android:id="@+id/spinnerEvent"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:entries="@array/event_arrays"
-    android:prompt="@string/event_prompt"
-    android:layout_margin="20dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    android:text="Event Name:"
-    android:textSize="20sp"/>
-<EditText
-    android:id="@+id/EventName"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
-    android:ems="10"
-    android:inputType="text"
-    android:textSize="20sp" />
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Event Date and Time"
-    android:layout_margin="20dp"
-    android:textSize="20sp"
-    />
-<EditText
-    android:id="@+id/EventDate"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
-    android:ems="10"
-    android:inputType="text"
-    android:textSize="20sp" />
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Event Details"
-    android:layout_margin="20dp"
-    android:textSize="20sp"></TextView>
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Event Type: "
+                android:textSize="20sp" />
 
-<EditText
-    android:id="@+id/EventDetails"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
-    android:ems="10"
-    android:inputType="text"
-    android:textSize="20sp" />
-<Button
-    android:id="@+id/PostEventButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Post New Event"
-    android:layout_margin="10dp"
-    android:layout_marginBottom="10dp"
-    android:onClick="onButtonClick"/>
+            <Spinner
+                android:id="@+id/spinnerEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:entries="@array/event_arrays"
+                android:prompt="@string/event_prompt" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Event Name:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/eventName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Event Date and Time"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/eventDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:ems="10"
+                android:focusable="false"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Start Time"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/eventStartTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:ems="10"
+                android:focusable="false"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="End Time"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/eventEndTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:ems="10"
+                android:focusable="false"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Event Details"
+                android:textSize="20sp"></TextView>
+
+            <EditText
+                android:id="@+id/eventDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/postEventButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="onClick"
+                android:text="Post New Event" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
