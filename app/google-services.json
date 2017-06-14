@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:310967363301:android:9c68d4257ea490b6",
         "android_client_info": {
-          "package_name": "com.example.ankita.onestopcampus"
+          "package_name": "com.scu.pocketcampus"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "310967363301-a6gqh9af2j0eif6ird73ku63ijj7in5s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.ankita.onestopcampus",
+            "package_name": "com.scu.pocketcampus",
             "certificate_hash": "e824b5260dc0d83f5cdb607a84ca523566f225ad"
           }
         },

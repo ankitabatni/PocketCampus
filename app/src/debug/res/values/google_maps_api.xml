@@ -4,7 +4,7 @@
 
     To get one, follow this link, follow the directions and press "Create" at the end:
 
-    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=E8:24:B5:26:0D:C0:D8:3F:5C:DB:60:7A:84:CA:52:35:66:F2:25:AD%3Bcom.example.ankita.pocketcampus
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=E8:24:B5:26:0D:C0:D8:3F:5C:DB:60:7A:84:CA:52:35:66:F2:25:AD%3Bcom.scu.pocketcampus
 
     You can also add your credentials to an existing key, using these values:
 

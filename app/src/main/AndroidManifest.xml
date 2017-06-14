@@ -27,105 +27,105 @@
         <activity android:name="com.scu.pocketcampus.MainActivity" />
         <activity android:name="com.scu.pocketcampus.LoginScreen">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.loginScreen" />
+                <action android:name="com.scu.pocketcampus.loginScreen" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.SignUp">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.signup" />
+                <action android:name="com.scu.pocketcampus.signup" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.Signup1">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.signup1" />
+                <action android:name="com.scu.pocketcampus.signup1" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.HomeScreen">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.HomeScreen" />
+                <action android:name="com.scu.pocketcampus.HomeScreen" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.Event">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.event" />
+                <action android:name="com.scu.pocketcampus.event" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.SearchProfessor">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.rate" />
+                <action android:name="com.scu.pocketcampus.rate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.Signup2">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.rate" />
+                <action android:name="com.scu.pocketcampus.rate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.VerifyEmail">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.rate" />
+                <action android:name="com.scu.pocketcampus.rate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.Chat">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.rate" />
+                <action android:name="com.scu.pocketcampus.rate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.AddProfessor">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.rate" />
+                <action android:name="com.scu.pocketcampus.rate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.RateProfessor">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.rate" />
+                <action android:name="com.scu.pocketcampus.rate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.ResetPassword">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.rate" />
+                <action android:name="com.scu.pocketcampus.rate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.About">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.rate" />
+                <action android:name="com.scu.pocketcampus.rate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.Account">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.rate" />
+                <action android:name="com.scu.pocketcampus.rate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name="com.scu.pocketcampus.ViewProfessor">
             <intent-filter>
-                <action android:name="com.example.ankita.onestopcampus.rate" />
+                <action android:name="com.scu.pocketcampus.rate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

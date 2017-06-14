@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.ankita.onestopcampus", appContext.getPackageName());
+        assertEquals("com.scu.pocketcampus", appContext.getPackageName());
     }
 }
