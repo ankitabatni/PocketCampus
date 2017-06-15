@@ -16,7 +16,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.scu.pocketcampus.model.Professor;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
 
 public class SchoolEvent extends AppCompatActivity {
 
@@ -57,6 +61,21 @@ public class SchoolEvent extends AppCompatActivity {
                         eventListAdapter.add(event);
                     }
                 }
+
+                eventListAdapter.sort(new Comparator<PocketCampusEvent>() {
+                    @Override
+                    public int compare(PocketCampusEvent pocketCampusEvent, PocketCampusEvent t1) {
+                        Date date1 = null;
+                        Date date2 = null;
+                        try {
+                             date1 = new SimpleDateFormat("mm/dd/yyyy").parse(pocketCampusEvent.getDate());
+                             date2 = new SimpleDateFormat("mm/dd/yyyy").parse(t1.getDate());
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        return date1.compareTo(date2);
+                    }
+                });
 
                 for(PocketCampusEvent event : eventList){
                     Log.d("event name", event.getName());

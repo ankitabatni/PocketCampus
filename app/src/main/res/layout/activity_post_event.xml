@@ -21,7 +21,9 @@ android:orientation="vertical">
                 android:id="@+id/textView28"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
                 android:text="Event Type: "
                 android:textSize="20sp" />
 
@@ -29,16 +31,19 @@ android:orientation="vertical">
                 android:id="@+id/spinnerEvent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:spinnerMode="dialog"
-                android:entries="@array/event_arrays"
-                android:prompt="@string/event_prompt" />
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:prompt="@string/event_prompt"
+                android:spinnerMode="dialog" />
 
             <TextView
                 android:id="@+id/textView29"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
                 android:text="Event Name:"
                 android:textSize="20sp" />
 
@@ -56,8 +61,10 @@ android:orientation="vertical">
                 android:id="@+id/textView30"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="Event Date and Time"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:text="Event Date"
                 android:textSize="20sp" />
 
             <EditText
@@ -75,8 +82,9 @@ android:orientation="vertical">
                 android:id="@+id/textView22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
                 android:text="Start Time"
                 android:textSize="20sp" />
 
@@ -95,8 +103,9 @@ android:orientation="vertical">
                 android:id="@+id/textView23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
                 android:text="End Time"
                 android:textSize="20sp" />
 
@@ -115,7 +124,9 @@ android:orientation="vertical">
                 android:id="@+id/textView31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
                 android:text="Event Details"
                 android:textSize="20sp"></TextView>
 

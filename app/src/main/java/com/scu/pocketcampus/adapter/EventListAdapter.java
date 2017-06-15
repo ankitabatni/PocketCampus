@@ -27,7 +27,7 @@ public class EventListAdapter extends ArrayAdapter<PocketCampusEvent> {
         PocketCampusEvent event = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.event_list, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.event_list_item, parent, false);
         }
 
         // Lookup view for data population
@@ -37,9 +37,23 @@ public class EventListAdapter extends ArrayAdapter<PocketCampusEvent> {
         // Populate the data into the template view using the data object
         eventName.setText(event.getName());
         eventDescription.setText(event.getDescription());
-        eventDate.setText(event.getDate());
+        eventDate.setText(event.getDate() + " " + getTwelveHourTime(event.getStartHour(),event.getStartMinute()) + " to " + getTwelveHourTime(event.getEndHour(), event.getEndMinute()));
         // Return the completed view to render on screen
         return convertView;
+    }
+
+    public String getTwelveHourTime(String TwentyFourHrTime, String minutes){
+        String timeText = "";
+        int startHourInt = Integer.parseInt(TwentyFourHrTime);
+        if(startHourInt > 12){
+            timeText +=  String.valueOf(startHourInt - 12) + ":" + minutes +  " PM";
+        }else if(startHourInt == 12){
+            timeText +=  String.valueOf(startHourInt) + ":" + minutes + " PM";
+        }else{
+            timeText +=  String.valueOf(startHourInt) + ":" + minutes + " AM";
+        }
+
+        return timeText;
     }
 
 

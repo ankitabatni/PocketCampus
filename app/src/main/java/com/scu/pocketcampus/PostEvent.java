@@ -8,6 +8,7 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -19,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.scu.pocketcampus.model.PocketCampusEvent;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.UUID;
@@ -42,6 +44,18 @@ public class PostEvent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_event);
+
+        final Spinner eventType = (Spinner)findViewById(R.id.spinnerEvent);
+        ArrayList<String> eventTypeList = new ArrayList<String>();
+        eventTypeList.add("Academic School Events");
+        eventTypeList.add("Community Events");
+        eventTypeList.add("Free Food Events");
+        eventTypeList.add("Individual Events");
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                this,R.layout.spinner_item,eventTypeList
+        );
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+        eventType.setAdapter(spinnerArrayAdapter);
 
         final EditText eventDate = (EditText)findViewById(R.id.eventDate);
         final EditText eventStartTime = (EditText)findViewById(R.id.eventStartTime);
@@ -88,7 +102,7 @@ public class PostEvent extends AppCompatActivity {
                         PostEvent.this.selectedStartMinute = selectedMinute;
                         eventStartTime.setText( selectedHour + ":" + selectedMinute);
                     }
-                }, hour, minute, true);//Yes 24 hour time
+                }, hour, minute, false);//No 24 hour time
                 mTimePicker.setTitle("Select Time");
                 mTimePicker.show();
             }
@@ -110,7 +124,7 @@ public class PostEvent extends AppCompatActivity {
                         PostEvent.this.selectedEndMinute = selectedMinute;
                         eventEndTime.setText( selectedHour + ":" + selectedMinute);
                     }
-                }, hour, minute, true);//Yes 24 hour time
+                }, hour, minute, false);//No 24 hour time
                 mTimePicker.setTitle("Select Time");
                 mTimePicker.show();
             }
