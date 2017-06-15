@@ -179,8 +179,9 @@ public class PostEvent extends AppCompatActivity {
                     i.putExtra("eventName", "individual_event");
                     startActivity(i);
                 }
+            }else{
+                Toast.makeText(getApplicationContext(), "Please select an event type", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 

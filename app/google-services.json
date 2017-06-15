@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "310967363301-373s4f1d33jam12eua3gk0npuc7lk032.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.scu.pocketcampus",
+            "certificate_hash": "cdbb15d84192cd2dc624019629e97900e6f59201"
+          }
+        },
+        {
           "client_id": "310967363301-a6gqh9af2j0eif6ird73ku63ijj7in5s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

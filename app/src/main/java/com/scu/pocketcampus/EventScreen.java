@@ -14,13 +14,19 @@ public class EventScreen extends AppCompatActivity {
     public static HashMap<String, String> eventNameMap = new HashMap<String, String>();
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
         setTitle("Events");
 
         //Title lookup
-        eventNameMap.put("School Events", "school_event");
+        eventNameMap.put("Academic School Events", "school_event");
         eventNameMap.put("Community Events", "community_event");
         eventNameMap.put("Free Food Events", "free_food_event");
         eventNameMap.put("Individual Events", "individual_event");
