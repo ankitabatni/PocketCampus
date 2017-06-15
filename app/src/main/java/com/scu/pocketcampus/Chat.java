@@ -1,189 +1,128 @@
 package com.scu.pocketcampus;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class Chat extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
-    public static final String ANONYMOUS = "anonymous";
-    public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
-    public static final int RC_SIGN_IN = 1;
+    private Button add_room;
+    private EditText room_name;
 
-    private ListView mMessageListView;
-    private MessageAdapter mMessageAdapter;
-    private ImageButton mPhotoPickerButton;
-    private EditText mMessageEditText;
-    private Button mSendButton;
-
-    private String mUsername;
-    private FirebaseDatabase mFiredatabase;
-    private DatabaseReference mDatabase;
-    private DatabaseReference messagesDatabaseReference;
-    private ChildEventListener mChildEventListener;
-    private FirebaseAuth mFirebaseAuth;
-    private FirebaseAuth.AuthStateListener mAuthStateListerner;
-    List<FriendlyMessage> friendlyMessages;
+    private ListView listView;
+    private ArrayAdapter<String> arrayAdapter;
+    private ArrayList<String> list_of_rooms = new ArrayList<>();
+    private String name;
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        setTitle("Chat Room");
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        messagesDatabaseReference = FirebaseDatabase.getInstance().getReference().child("message");
 
-       // mFiredatabase=FirebaseDatabase.getInstance();
-        mFirebaseAuth =FirebaseAuth.getInstance();
-        mUsername = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        add_room = (Button) findViewById(R.id.btn_add_room);
+        room_name = (EditText) findViewById(R.id.room_name_edittext);
+        listView = (ListView) findViewById(R.id.listView);
 
-        // Initialize references to views
-        mMessageListView = (ListView) findViewById(R.id.messageListView);
-        mPhotoPickerButton = (ImageButton) findViewById(R.id.photoPickerButton);
-        mMessageEditText = (EditText) findViewById(R.id.messageEditText);
-        mSendButton = (Button) findViewById(R.id.sendButton);
-        friendlyMessages = new ArrayList<>();
-        mMessageAdapter = new MessageAdapter(this, R.layout.item_message, friendlyMessages);
-        mMessageListView.setAdapter(mMessageAdapter);
+        arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list_of_rooms);
 
-        mSendButton.setOnClickListener(new View.OnClickListener() {
+        listView.setAdapter(arrayAdapter);
 
+        request_user_name();
+
+        add_room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getUid(), null);
-                mDatabase.child("message").child(UUID.randomUUID().toString()).setValue(friendlyMessage);
-                // Clear input box
-                mMessageEditText.setText("");
+
+                Map<String,Object> map = new HashMap<String, Object>();
+                map.put(room_name.getText().toString(),"");
+                root.updateChildren(map);
+
             }
         });
 
-        mAuthStateListerner= new FirebaseAuth.AuthStateListener() {
+        root.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user=firebaseAuth.getCurrentUser();
-                if(user!=null){
-                    //user is signed in
-                    onSignedInInitialize(user.getDisplayName());
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                }else {
-                    //user is signed out
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    onSignedOutCleanUp();
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                Set<String> set = new HashSet<String>();
+                Iterator i = dataSnapshot.getChildren().iterator();
+
+                while (i.hasNext()){
+                    set.add(((DataSnapshot)i.next()).getKey());
                 }
 
+                list_of_rooms.clear();
+                list_of_rooms.addAll(set);
+
+                arrayAdapter.notifyDataSetChanged();
             }
-        };
 
-
-        // ImagePickerButton shows an image picker to upload a image for a message
-        mPhotoPickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                // TODO: Fire an intent to show an image picker
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
-        // Enable Send button when there's text to send
-        mMessageEditText.addTextChangedListener(new TextWatcher() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.toString().trim().length() > 0) {
-                    mSendButton.setEnabled(true);
-                } else {
-                    mSendButton.setEnabled(false);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
+                Intent intent = new Intent(getApplicationContext(),Chat_Room.class);
+                intent.putExtra("room_name",((TextView)view).getText().toString() );
+                intent.putExtra("user_name",name);
+                startActivity(intent);
             }
         });
-        mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
 
     }
 
-  @Override
-    protected void onPause(){
-        super.onPause();
-        if(mAuthStateListerner!=null){
-            mFirebaseAuth.removeAuthStateListener(mAuthStateListerner);
-        }
-        detachDatabaseReadListener();
+    private void request_user_name() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter name:");
+
+        final EditText input_field = new EditText(this);
+
+        builder.setView(input_field);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                name = input_field.getText().toString();
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+                request_user_name();
+            }
+        });
+
+        builder.show();
     }
 
-    @Override
-    protected void onResume(){
-        super.onResume();
-        mFirebaseAuth.addAuthStateListener(mAuthStateListerner);
-    }
-    private void attachDataBaseReadListener()
-    {
-        if(mChildEventListener==null)
-            mChildEventListener=new ChildEventListener() {
-                @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    FriendlyMessage friendlyMessage= dataSnapshot.getValue(FriendlyMessage.class);
-
-                    friendlyMessages.add(friendlyMessage);
-                    mMessageAdapter.notifyDataSetChanged();
-                }
-                @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                }
-                @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {
-                }
-                @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                }
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            };
-        messagesDatabaseReference.addChildEventListener(mChildEventListener);
-    }
-    private void onSignedInInitialize(String username){
-        mUsername=username;
-        friendlyMessages.clear();
-        attachDataBaseReadListener();
-    }
-    private void onSignedOutCleanUp(){
-        mUsername= ANONYMOUS;
-        mMessageAdapter.clear();
-        detachDatabaseReadListener();
-    }
-    private void detachDatabaseReadListener()
-    {   if(mChildEventListener!=null)
-        messagesDatabaseReference.removeEventListener(mChildEventListener);
-        mChildEventListener=null;
-    }
 
 }
