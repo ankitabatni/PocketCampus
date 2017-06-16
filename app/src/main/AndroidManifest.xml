@@ -128,7 +128,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Account">
+        <activity android:name=".Profile">
             <intent-filter>
                 <action android:name="com.scu.pocketcampus.rate" />
 

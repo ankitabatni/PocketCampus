@@ -8,7 +8,7 @@
     android:id="@+id/user_account"
 
 
-    android:title="Account"/>
+    android:title="Profile"/>
 <item
     android:id="@+id/about"
 

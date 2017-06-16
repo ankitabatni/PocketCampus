@@ -20,7 +20,7 @@ import com.scu.pocketcampus.model.Rate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewProfessor extends MainActivity{
+public class ViewProfessor extends HomeScreen{
 
     private DatabaseReference mDatabase;
     final List<Rate> ratingtList = new ArrayList<>();
@@ -61,12 +61,16 @@ public class ViewProfessor extends MainActivity{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> snapshots =  dataSnapshot.getChildren();
-                for(DataSnapshot snapshot : snapshots){
+                for(DataSnapshot snapshot : snapshots) {
                     //ratingtList.add(snapshot.getValue(Rate.class));
                     Rate ratingInfo = snapshot.getValue(Rate.class);
-                    profCommentListApadter.add(ratingInfo);
+                    if (ratingInfo.getProfId().equals(prof.getProfessorId())) {
+                        rating += ratingInfo.getRating();
+                        difficultyLevel += ratingInfo.getDifficultyLevel();
+                        profCommentListApadter.add(ratingInfo);
+                        count++;
+                    }
                 }
-
                 if(count!=0) {
                     rating = rating / count;
                     difficultyLevel = (difficultyLevel / 10) / count;
