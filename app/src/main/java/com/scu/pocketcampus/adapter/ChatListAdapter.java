@@ -48,12 +48,14 @@ public class ChatListAdapter extends ArrayAdapter<ChatMessage> {
         messageTextView.setText(chat.getMsg());
         nameTextView.setText(chat.getName());
 
-        chatMessageInnerLayout.setBackgroundResource(R.drawable.chat_message_shape_other);
-
         if(mAuth.getCurrentUser().getUid().toString().equals(chat.getUserId())) {
             chatMessageOuterLayout.setGravity(Gravity.RIGHT | Gravity.END);
             chatMessageInnerLayout.setGravity(Gravity.RIGHT | Gravity.END);
             chatMessageInnerLayout.setBackgroundResource(R.drawable.chat_message_shape_user);
+        }else{
+            chatMessageOuterLayout.setGravity(Gravity.LEFT | Gravity.START);
+            chatMessageInnerLayout.setGravity(Gravity.LEFT | Gravity.START);
+            chatMessageInnerLayout.setBackgroundResource(R.drawable.chat_message_shape_other);
         }
 
         // Return the completed view to render on screen

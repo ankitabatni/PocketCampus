@@ -55,7 +55,7 @@ public class ChatRoom extends AppCompatActivity {
         // Create the adapter to convert the array to views
         final ChatListAdapter chatListAdapter = new ChatListAdapter(this, chatMessageList);
         // Attach the adapter to a ListView
-        ListView listView = (ListView) findViewById(R.id.chatMessageList);
+        final ListView listView = (ListView) findViewById(R.id.chatMessageList);
         listView.setAdapter(chatListAdapter);
 
         root = FirebaseDatabase.getInstance().getReference().child("chatrooms").child(room_name);
@@ -126,7 +126,6 @@ public class ChatRoom extends AppCompatActivity {
 
             ChatMessage chatMessage = new ChatMessage(chat_msg, chat_user_name, chat_user_id);
             chatListAdapter.add(chatMessage);
-
         }
 
     }
