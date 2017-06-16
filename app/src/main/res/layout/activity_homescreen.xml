@@ -1,147 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/background_light"
-    tools:context="com.scu.pocketcampus.HomeScreen">
-
-    <View
-        android:id="@+id/middle_separator"
-        android:layout_width="0dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_centerHorizontal="true" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@id/middle_separator"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
+        tools:context="com.scu.pocketcampus.HomeScreen">
 
         <FrameLayout
+            android:id="@+id/content_frame"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF">
+            android:layout_height="match_parent"></FrameLayout>
+        <ListView
+            android:id="@+id/drawer_list"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:paddingTop="200dp">
+        </ListView>
 
-            <Button
-                android:id="@+id/button_rate_prof"
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <View
+                android:id="@+id/middle_separator"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@id/middle_separator"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
+
+
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    >
+
+                    <Button
+                        android:id="@+id/button_rate_prof"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/rateone"
+                        android:gravity="bottom|center"
+                        android:onClick="onClick"
+                        android:paddingBottom="7dp"
+                        android:text="RATE PROFESSOR"
+                        android:textColor="#EEEEEE"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    >
+
+                    <Button
+                        android:id="@+id/button_event"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/even"
+                        android:gravity="bottom|center"
+                        android:onClick="onClick"
+                        android:paddingBottom="7dp"
+                        android:text="EVENT"
+                        android:textColor="#EEEEEE"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/middle_separator"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    >
+
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    >
+
+                    <Button
+                        android:id="@+id/buttonLocate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/gps1"
+                        android:gravity="bottom|center"
+                        android:onClick="onClick"
+                        android:paddingBottom="7dp"
+                        android:text="LOCATE"
+                        android:textColor="#EEEEEE"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    >
+
+
+                    <Button
+                        android:id="@+id/button_chat"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/chat3"
+                        android:gravity="bottom|center"
+                        android:onClick="onClick"
+                        android:paddingBottom="7dp"
+                        android:text="CHAT"
+                        android:textColor="#EEEEEE"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/rateone"
-                android:gravity="bottom|center"
-                android:onClick="onClick"
-                android:paddingBottom="7dp"
-                android:text="RATE PROFESSOR"
-                android:textColor="#EEEEEE"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:layout_height="170dp"
+                android:orientation="vertical"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp">
 
-        </FrameLayout>
+                <ViewFlipper
+                    android:id="@+id/myflipper"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center" >
+                </ViewFlipper>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF">
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/button_event"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/even"
-                android:gravity="bottom|center"
-                android:onClick="onClick"
-                android:paddingBottom="7dp"
-                android:text="EVENT"
-                android:textColor="#EEEEEE"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-        </FrameLayout>
+        </RelativeLayout>
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/middle_separator"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF">
-
-            <Button
-                android:id="@+id/buttonLocate"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:background="@drawable/gps1"
-                android:gravity="bottom|center"
-                android:onClick="onClick"
-                android:paddingBottom="7dp"
-                android:text="LOCATE"
-                android:textColor="#EEEEEE"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF">
-
-            <Button
-                android:id="@+id/button_chat"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:background="@drawable/chat3"
-                android:gravity="bottom|center"
-                android:onClick="onClick"
-                android:paddingBottom="7dp"
-                android:text="CHAT"
-                android:textColor="#EEEEEE"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-        </FrameLayout>
-
-
-    </LinearLayout>
-
-</RelativeLayout>
+    </RelativeLayout>
