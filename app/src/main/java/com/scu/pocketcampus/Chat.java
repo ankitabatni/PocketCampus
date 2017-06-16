@@ -90,7 +90,7 @@ public class Chat extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Intent intent = new Intent(getApplicationContext(),Chat_Room.class);
+                Intent intent = new Intent(getApplicationContext(),ChatRoom.class);
                 intent.putExtra("room_name",((TextView)view).getText().toString() );
                 intent.putExtra("user_name",name);
                 startActivity(intent);

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.scu.pocketcampus.R;
 import com.scu.pocketcampus.model.PocketCampusEvent;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -34,10 +36,17 @@ public class EventListAdapter extends ArrayAdapter<PocketCampusEvent> {
         TextView eventName = (TextView) convertView.findViewById(R.id.eventName);
         TextView eventDescription = (TextView) convertView.findViewById(R.id.eventDescription);
         TextView eventDate = (TextView) convertView.findViewById(R.id.eventDate);
+        TextView eventTime = (TextView) convertView.findViewById(R.id.eventTime);
         // Populate the data into the template view using the data object
         eventName.setText(event.getName());
         eventDescription.setText(event.getDescription());
-        eventDate.setText(event.getDate() + " " + getTwelveHourTime(event.getStartHour(),event.getStartMinute()) + " to " + getTwelveHourTime(event.getEndHour(), event.getEndMinute()));
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
+        try {
+            eventDate.setText(formatter.format(new SimpleDateFormat("MM/dd/yy").parse(event.getDate())));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        eventTime.setText(getTwelveHourTime(event.getStartHour(),event.getStartMinute()) + " - " + getTwelveHourTime(event.getEndHour(), event.getEndMinute()));
         // Return the completed view to render on screen
         return convertView;
     }

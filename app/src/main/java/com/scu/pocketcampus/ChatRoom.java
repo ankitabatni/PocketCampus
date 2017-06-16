@@ -21,7 +21,7 @@ import android.os.Bundle;
 /**
  * Created by filipp on 6/28/2016.
  */
-public class Chat_Room  extends AppCompatActivity {
+public class ChatRoom extends AppCompatActivity {
 
     private Button btn_send_msg;
     private EditText input_msg;

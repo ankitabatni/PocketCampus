@@ -28,7 +28,7 @@ import android.view.View;
 
         public void onClick(View v) {
                     if (v.getId() == R.id.button_event) {
-                        Intent intent = new Intent(this, EventScreen.class);
+                        Intent intent = new Intent(this, EventHome.class);
                         startActivity(intent);
                     }
                     if (v.getId() == R.id.button_rate_prof) {

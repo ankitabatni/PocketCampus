@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -36,7 +35,7 @@ public class PostEvent extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, EventScreen.class);
+        Intent intent = new Intent(this, EventHome.class);
         startActivity(intent);
     }
 
@@ -44,6 +43,7 @@ public class PostEvent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_event);
+        setTitle("Post New Event");
 
         final Spinner eventType = (Spinner)findViewById(R.id.spinnerEvent);
         ArrayList<String> eventTypeList = new ArrayList<String>();
@@ -147,7 +147,7 @@ public class PostEvent extends AppCompatActivity {
         final Spinner eventType = (Spinner)findViewById(R.id.spinnerEvent);
 
         PocketCampusEvent event = new PocketCampusEvent();
-        event.setType(EventScreen.eventNameMap.get(eventType.getSelectedItem().toString()));
+        event.setType(EventHome.eventNameMap.get(eventType.getSelectedItem().toString()));
         event.setName(eventName.getText().toString().trim());
         event.setDate(eventDate.getText().toString().trim());
         event.setStartHour(String.valueOf(this.selectedStartHour));
@@ -163,33 +163,33 @@ public class PostEvent extends AppCompatActivity {
         if (v.getId() == R.id.postEventButton) {
             final Spinner eventType = (Spinner)findViewById(R.id.spinnerEvent);
 
-            String selectedEventType = EventScreen.eventNameMap.get(eventType.getSelectedItem().toString());
+            String selectedEventType = EventHome.eventNameMap.get(eventType.getSelectedItem().toString());
 
             if(selectedEventType!=null && selectedEventType!= ""){
                 createEvent();
 
 
                 if(selectedEventType == "community_event") {
-                    Intent intent=new Intent(this,SchoolEvent.class);
+                    Intent intent=new Intent(this,EventList.class);
                     intent.putExtra("eventName", "community_event");
                     startActivity(intent);
                 }
 
 
                 if(selectedEventType == "free_food_event") {
-                    Intent i = new Intent(this, SchoolEvent.class);
+                    Intent i = new Intent(this, EventList.class);
                     i.putExtra("eventName", "free_food_event");
                     startActivity(i);
                 }
 
                 if(selectedEventType == "school_event") {
-                    Intent i = new Intent(this, SchoolEvent.class);
+                    Intent i = new Intent(this, EventList.class);
                     i.putExtra("eventName", "school_event");
                     startActivity(i);
                 }
 
                 if(selectedEventType == "individual_event") {
-                    Intent i = new Intent(this, SchoolEvent.class);
+                    Intent i = new Intent(this, EventList.class);
                     i.putExtra("eventName", "individual_event");
                     startActivity(i);
                 }

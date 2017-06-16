@@ -54,7 +54,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".EventScreen">
+        <activity android:name=".EventHome">
             <intent-filter>
                 <action android:name="com.scu.pocketcampus.event" />
 
@@ -84,6 +84,15 @@
         </activity>
         <activity
             android:name=".Chat"
+            android:windowSoftInputMode="adjustPan|adjustResize">
+            <intent-filter>
+                <action android:name="com.scu.pocketcampus.rate" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ChatRoom"
             android:windowSoftInputMode="adjustPan|adjustResize">
             <intent-filter>
                 <action android:name="com.scu.pocketcampus.rate" />
@@ -136,7 +145,7 @@
         <activity
             android:name=".PostEvent"
             android:windowSoftInputMode="adjustPan|adjustResize" />
-        <activity android:name=".SchoolEvent" />
+        <activity android:name=".EventList" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

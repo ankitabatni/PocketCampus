@@ -14,7 +14,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.scu.pocketcampus.model.Professor;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,14 +21,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 
-public class SchoolEvent extends AppCompatActivity {
+public class EventList extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private String eventName = "";
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, EventScreen.class);
+        Intent intent = new Intent(this, EventHome.class);
         startActivity(intent);
     }
 
@@ -90,7 +89,7 @@ public class SchoolEvent extends AppCompatActivity {
     }
 
     private String getScreenTitle(String eventName){
-        return EventScreen.eventTitleMap.get(eventName);
+        return EventHome.eventTitleMap.get(eventName);
     }
 
     public void onClick(View v) {

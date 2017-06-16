@@ -3,10 +3,10 @@ package com.scu.pocketcampus;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import java.util.HashMap;
 
-public class EventScreen extends MainActivity {
+
+public class EventHome extends MainActivity {
 
     public static HashMap<String, String> eventTitleMap = new HashMap<String, String>();
     public static HashMap<String, String> eventNameMap = new HashMap<String, String>();
@@ -41,26 +41,26 @@ public class EventScreen extends MainActivity {
     public void onClick(View v){
 
         if(v.getId() == R.id.buttonC) {
-            Intent intent=new Intent(this,SchoolEvent.class);
+            Intent intent=new Intent(this,EventList.class);
             intent.putExtra("eventName", "community_event");
             startActivity(intent);
         }
 
 
         if(v.getId()==R.id.buttonF) {
-            Intent i = new Intent(this, SchoolEvent.class);
+            Intent i = new Intent(this, EventList.class);
             i.putExtra("eventName", "free_food_event");
             startActivity(i);
         }
 
         if(v.getId()==R.id.buttonS) {
-            Intent i = new Intent(this, SchoolEvent.class);
+            Intent i = new Intent(this, EventList.class);
             i.putExtra("eventName", "school_event");
             startActivity(i);
         }
 
         if(v.getId()==R.id.buttonI) {
-            Intent i = new Intent(this, SchoolEvent.class);
+            Intent i = new Intent(this, EventList.class);
             i.putExtra("eventName", "individual_event");
             startActivity(i);
         }
