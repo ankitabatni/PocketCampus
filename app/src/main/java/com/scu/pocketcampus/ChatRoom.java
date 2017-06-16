@@ -7,20 +7,24 @@ import android.os.Bundle;
         import android.view.View;
         import android.widget.Button;
         import android.widget.EditText;
-        import android.widget.TextView;
+import android.widget.ListView;
+import android.widget.TextView;
 
-        import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
         import com.google.firebase.database.DataSnapshot;
         import com.google.firebase.database.DatabaseError;
         import com.google.firebase.database.DatabaseReference;
         import com.google.firebase.database.FirebaseDatabase;
+import com.scu.pocketcampus.adapter.ChatListAdapter;
+import com.scu.pocketcampus.adapter.EventListAdapter;
+import com.scu.pocketcampus.model.PocketCampusEvent;
 
-        import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.HashMap;
         import java.util.Iterator;
         import java.util.Map;
-/**
- * Created by filipp on 6/28/2016.
- */
+
 public class ChatRoom extends AppCompatActivity {
 
     private Button btn_send_msg;
@@ -31,11 +35,13 @@ public class ChatRoom extends AppCompatActivity {
     private String user_name,room_name;
     private DatabaseReference root ;
     private String temp_key;
+    private String chat_msg,chat_user_name, chat_user_id;
+    final private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat__room);
+        setContentView(R.layout.activity_chat_room);
 
         btn_send_msg = (Button) findViewById(R.id.btn_send);
         input_msg = (EditText) findViewById(R.id.msg_input);
@@ -45,12 +51,18 @@ public class ChatRoom extends AppCompatActivity {
         room_name = getIntent().getExtras().get("room_name").toString();
         setTitle(" Room - "+room_name);
 
-        root = FirebaseDatabase.getInstance().getReference().child(room_name);
+        final ArrayList<ChatMessage> chatMessageList = new ArrayList<ChatMessage>();
+        // Create the adapter to convert the array to views
+        final ChatListAdapter chatListAdapter = new ChatListAdapter(this, chatMessageList);
+        // Attach the adapter to a ListView
+        ListView listView = (ListView) findViewById(R.id.chatMessageList);
+        listView.setAdapter(chatListAdapter);
+
+        root = FirebaseDatabase.getInstance().getReference().child("chatrooms").child(room_name);
 
         btn_send_msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Map<String,Object> map = new HashMap<String, Object>();
                 temp_key = root.push().getKey();
                 root.updateChildren(map);
@@ -59,7 +71,9 @@ public class ChatRoom extends AppCompatActivity {
                 Map<String,Object> map2 = new HashMap<String, Object>();
                 map2.put("name",user_name);
                 map2.put("msg",input_msg.getText().toString());
+                map2.put("user_id",mAuth.getCurrentUser().getUid().toString());
                 message_root.updateChildren(map2);
+                input_msg.setText("");
             }
         });
 
@@ -67,13 +81,13 @@ public class ChatRoom extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                append_chat_conversation(dataSnapshot);
+                append_chat_conversation(dataSnapshot, chatListAdapter);
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                append_chat_conversation(dataSnapshot);
+                append_chat_conversation(dataSnapshot, chatListAdapter);
 
             }
 
@@ -93,11 +107,14 @@ public class ChatRoom extends AppCompatActivity {
             }
         });
 
+
+
+
     }
 
-    private String chat_msg,chat_user_name;
 
-    private void append_chat_conversation(DataSnapshot dataSnapshot) {
+
+    private void append_chat_conversation(DataSnapshot dataSnapshot, ChatListAdapter chatListAdapter) {
 
         Iterator i = dataSnapshot.getChildren().iterator();
 
@@ -105,12 +122,12 @@ public class ChatRoom extends AppCompatActivity {
 
             chat_msg = (String) ((DataSnapshot)i.next()).getValue();
             chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
-            if(chat_user_name==user_name) {
-                chat_conversation.setGravity(Gravity.RIGHT | Gravity.END);
-            }
-            chat_conversation.append(chat_user_name +" : "+chat_msg +" \n");
-        }
+            chat_user_id = (String) ((DataSnapshot)i.next()).getValue();
 
+            ChatMessage chatMessage = new ChatMessage(chat_msg, chat_user_name, chat_user_id);
+            chatListAdapter.add(chatMessage);
+
+        }
 
     }
 }

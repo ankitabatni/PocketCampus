@@ -35,7 +35,7 @@ public class Chat extends AppCompatActivity {
     private ArrayAdapter<String> arrayAdapter;
     private ArrayList<String> list_of_rooms = new ArrayList<>();
     private String name;
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().child("chatrooms");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class Chat extends AppCompatActivity {
                 Map<String,Object> map = new HashMap<String, Object>();
                 map.put(room_name.getText().toString(),"");
                 root.updateChildren(map);
-
+                room_name.setText("");
             }
         });
 

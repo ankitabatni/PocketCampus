@@ -39,7 +39,7 @@ public class EventList extends AppCompatActivity {
         setTitle(getScreenTitle(eventName));
         mDatabase = FirebaseDatabase.getInstance().getReference();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_school_event);
+        setContentView(R.layout.activity_event_list);
 
         final ArrayList<PocketCampusEvent> eventList = new ArrayList<>();
         // Create the adapter to convert the array to views

@@ -35,7 +35,7 @@ public class SearchProfessor extends MainActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_professor);
+        setContentView(R.layout.activity_search_professor);
         setTitle("Search a Professor");
         final  Intent intent = new Intent(this,ViewProfessor.class);
         final List<Professor> profObjectList = new ArrayList<>();
