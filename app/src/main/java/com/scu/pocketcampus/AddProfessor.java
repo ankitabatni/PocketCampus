@@ -92,18 +92,28 @@ public class AddProfessor extends AppCompatActivity {
         String lastnamestr = lastName.getText().toString();
         String schoolNamestr = autoCompleteCollege.getText().toString();
         String departmentNamestr = autoCompleteDepartment.getText().toString();
-        prof = new Professor(UUID.randomUUID().toString(), schoolNamestr, firstnamestr, lastnamestr, departmentNamestr);
-        mDatabase.child("professors").child(prof.getProfessorId().toString()).setValue(prof);
-    }
-
-    public void onClick(View v) {
-        if (v.getId() == R.id.submit_buttton) {
-            addProfessor();
+        if (firstnamestr.isEmpty() || lastnamestr.isEmpty()) {
+            Toast.makeText(this, "Please provide the first/last name", Toast.LENGTH_SHORT).show();
+        } else if (schoolNamestr.isEmpty()) {
+            Toast.makeText(this, "Please provide school name", Toast.LENGTH_SHORT).show();
+        } else if (departmentNamestr.isEmpty()) {
+            Toast.makeText(this, "Please provide the department name", Toast.LENGTH_SHORT).show();
+        } else {
+            prof = new Professor(UUID.randomUUID().toString(), schoolNamestr, firstnamestr, lastnamestr, departmentNamestr);
+            mDatabase.child("professors").child(prof.getProfessorId().toString()).setValue(prof);
             Toast.makeText(AddProfessor.this,"Professor Added Successfully",Toast
                     .LENGTH_SHORT).show();
             Intent intent = new Intent(this, ViewProfessor.class);
             intent.putExtra("Prof Object", (Parcelable) prof);
             startActivity(intent);
+        }
+    }
+
+    public void onClick(View v) {
+        if (v.getId() == R.id.submit_buttton) {
+            addProfessor();
+
+
         }
     }
 }

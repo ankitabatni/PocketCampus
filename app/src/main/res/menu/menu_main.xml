@@ -13,7 +13,7 @@
     android:id="@+id/about"
 
 
-    android:title="about"/>
+    android:title="About"/>
 <item
     android:id="@+id/logout"
 

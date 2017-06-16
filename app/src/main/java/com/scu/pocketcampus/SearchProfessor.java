@@ -3,7 +3,6 @@ package com.scu.pocketcampus;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,17 +11,17 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.scu.pocketcampus.model.Professor;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.scu.pocketcampus.model.Professor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchProfessor extends AppCompatActivity {
+public class SearchProfessor extends MainActivity {
     private DatabaseReference mDatabase;
 
     @Override
@@ -43,7 +42,7 @@ public class SearchProfessor extends AppCompatActivity {
         final List<String> profNameList = new ArrayList<String>();
         final List<String> profNameFilteredList = new ArrayList<String>();
         final ListView listview = (ListView) findViewById(R.id.profListView);
-        final ArrayAdapter<String> prof_adapter = new ArrayAdapter<String>(this,  R.layout.my_list, profNameFilteredList);
+        final ArrayAdapter<String> prof_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, profNameFilteredList);
         listview.setAdapter(prof_adapter);
 
         final SearchView searchView = (SearchView) findViewById(R.id.searchView);

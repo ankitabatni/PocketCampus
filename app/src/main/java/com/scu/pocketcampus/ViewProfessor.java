@@ -3,25 +3,25 @@ package com.scu.pocketcampus;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.scu.pocketcampus.model.Professor;
-import com.scu.pocketcampus.model.Rate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.scu.pocketcampus.adapter.ProfCommentListApadter;
+import com.scu.pocketcampus.model.Professor;
+import com.scu.pocketcampus.model.Rate;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewProfessor extends AppCompatActivity {
+public class ViewProfessor extends MainActivity{
+
     private DatabaseReference mDatabase;
     final List<Rate> ratingtList = new ArrayList<>();
     private double overallRating =0. ,levelOfDifficulty = 0.;
@@ -42,6 +42,7 @@ public class ViewProfessor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_professor);
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         Bundle extras = getIntent().getExtras();
         prof = (Professor) extras.getParcelable("Prof Object");
@@ -49,11 +50,11 @@ public class ViewProfessor extends AppCompatActivity {
         TextView deptName = (TextView) findViewById(R.id.nameOfDepartment_textView);
         deptName.setText(prof.getDepartmentName());
         final  Intent intent = new Intent(this,ViewProfessor.class);
-        final List<String> commentList = new ArrayList<String>();
 
+        final ArrayList<Rate> commentList = new ArrayList<Rate>();
         final ListView commentlistview = (ListView) findViewById(R.id.commentListView);
-        final ArrayAdapter<String> comment_adapter = new ArrayAdapter<String>(this, R.layout.my_list, commentList);
-        commentlistview.setAdapter(comment_adapter);
+        final ProfCommentListApadter profCommentListApadter = new ProfCommentListApadter(this, commentList);
+        commentlistview.setAdapter(profCommentListApadter);
 
 
         mDatabase.child("rating").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -61,34 +62,11 @@ public class ViewProfessor extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> snapshots =  dataSnapshot.getChildren();
                 for(DataSnapshot snapshot : snapshots){
-                    ratingtList.add(snapshot.getValue(Rate.class));
+                    //ratingtList.add(snapshot.getValue(Rate.class));
+                    Rate ratingInfo = snapshot.getValue(Rate.class);
+                    profCommentListApadter.add(ratingInfo);
                 }
 
-                for(Rate rate: ratingtList){
-
-                    if(rate.getProfId().equals(prof.getProfessorId())){
-                        rating += rate.getRating();
-                        difficultyLevel += rate.getDifficultyLevel();
-                        if(rating == 1){
-                            remark = "Awful";
-                        }
-                        else if(rating == 2){
-                            remark = "Poor";
-                        }
-                       else if(rating == 3){
-                            remark = "Fair";
-                        }
-                        else if(rating == 4){
-                            remark = "Good";
-                        }
-                        else{
-                            remark = "Awesome";
-                        }
-                        commentList.add(rate.getRating() +" / 5        "+remark+"                          " +
-                                ""+rate.getComment());
-                        count++;
-                    }
-                }
                 if(count!=0) {
                     rating = rating / count;
                     difficultyLevel = (difficultyLevel / 10) / count;
@@ -96,7 +74,6 @@ public class ViewProfessor extends AppCompatActivity {
                 else{
                     rating = 0f;
                     difficultyLevel = 0;
-                    commentList.add("No Comments Found");
                 }
 
                TextView ratingTextView = (TextView)findViewById(R.id.textViewRating);
@@ -120,4 +97,6 @@ public class ViewProfessor extends AppCompatActivity {
              startActivity(intent);
          }
      }
+
+
 }

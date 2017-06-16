@@ -13,27 +13,29 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.scu.pocketcampus.model.Professor;
-import com.scu.pocketcampus.model.Rate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.scu.pocketcampus.model.Professor;
+import com.scu.pocketcampus.model.Rate;
 
+import java.util.Date;
 import java.util.UUID;
 
 public class RateProfessor extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private DatabaseReference mDatabase;
     private RatingBar ratingBar;
-    private Float currentRating;
+    private Float currentRating = -1.0f;
     private String courseName;
-    private int difficulty;
+    private int difficulty = -1;
     private boolean takeCourseAgain;
     private String comment;
     private Professor prof;
     public Rate rateProf;
     private CheckBox chkYes, chkNo;
     private SeekBar seekBar;
+   // private Date date = new Date();
 
 
     @Override
@@ -59,11 +61,17 @@ public class RateProfessor extends AppCompatActivity {
         courseName = courseNameEditText.getText().toString();
         EditText commentEditText = (EditText) findViewById(R.id.editTextComments);
         comment = commentEditText.getText().toString();
+        if (courseName.isEmpty()) {
+            Toast.makeText(this, "Please provide the course name", Toast.LENGTH_SHORT).show();
+        } else if (currentRating == -1.0f) {
+            Toast.makeText(this, "Please provide the rating", Toast.LENGTH_SHORT).show();
+        } else if (difficulty == -1) {
+            Toast.makeText(this, "Please provide the level of difficulty", Toast.LENGTH_SHORT).show();
+        } else {
+            rateProf = new Rate(prof.getProfessorId(), firebaseAuth.getCurrentUser().getUid(), courseName, currentRating, difficulty, takeCourseAgain, comment, (new Date()).toString());
 
-
-        rateProf = new Rate(prof.getProfessorId(),firebaseAuth.getCurrentUser().getUid(), courseName, currentRating,difficulty,takeCourseAgain, comment);
-        //Professor prof = new Professor(UUID.randomUUID().toString(), schoolNamestr, firstnamestr, lastnamestr, "Computer Science");
-        mDatabase.child("rating").child(UUID.randomUUID().toString()).setValue(rateProf);
+            mDatabase.child("rating").child(UUID.randomUUID().toString()).setValue(rateProf);
+        }
     }
 
     public void addListenerOnRatingBar() {

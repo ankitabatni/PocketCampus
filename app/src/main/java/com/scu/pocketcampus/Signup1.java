@@ -2,22 +2,21 @@ package com.scu.pocketcampus;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Toast;
 
-import com.scu.pocketcampus.model.College;
-import com.scu.pocketcampus.model.SharedUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.scu.pocketcampus.model.College;
+import com.scu.pocketcampus.model.SharedUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,7 @@ import java.util.List;
 
 public class Signup1 extends AppCompatActivity {
     private DatabaseReference mDatabase;
+    private boolean isCountryValid = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,11 +100,19 @@ public class Signup1 extends AppCompatActivity {
                 String country_selected = autoCompleteCountry.getText().toString();
                 Log.d("Country Selected", country_selected);
                 college_adapter.clear();
-                for(College college : collegeObjectList){
-                    if(college.getCountryName()!=null && college.getCountryName().equals(country_selected)){
-                        college_adapter.add(college.getCollegeName());
+                for(College college : collegeObjectList) {
+                    if (college.getCountryName().equals(country_selected)) {
+                        isCountryValid = true;
                     }
                 }
+                if(isCountryValid){
+                    for(College college : collegeObjectList) {
+                        if(college.getCountryName()!=null && college.getCountryName().equals(country_selected)){
+                            college_adapter.add(college.getCollegeName());
+                        }
+                    }
+                }
+
             }
         });
 
@@ -118,15 +126,31 @@ public class Signup1 extends AppCompatActivity {
             String country = autoCompleteCountry.getText().toString();
             AutoCompleteTextView autoCompleteCollege = (AutoCompleteTextView)findViewById(R.id.autoCompleteCollege);
             String college = autoCompleteCollege.getText().toString();
-            SharedUser.getInstance().setCollege(college);
-            SharedUser.getInstance().setCountry(country);
-            startActivity(i1);
 
+            if( country.isEmpty())
+            {
+                Toast.makeText(this,"Please select country",Toast.LENGTH_SHORT).show();
+
+            }
+            else if (!isCountryValid){
+                Toast.makeText(this,"Country not supported",Toast.LENGTH_SHORT).show();
+
+            }
+            else if( college.isEmpty()){
+                Toast.makeText(this,"Please select or type college",Toast.LENGTH_SHORT).show();
+            }
+                else
+
+            {
+                SharedUser.getInstance().setCollege(college);
+                SharedUser.getInstance().setCountry(country);
+                startActivity(i1);
+            }
         }
 
 
     }
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
@@ -136,6 +160,6 @@ public class Signup1 extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    */
 
 }

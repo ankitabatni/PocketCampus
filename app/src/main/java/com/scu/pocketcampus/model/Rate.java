@@ -11,8 +11,9 @@ public class Rate {
     public Integer difficultyLevel;
     public boolean takeCourseAgain;
     public String comment;
+    public String date;
 
-    public Rate(String profId, String userId, String courseCode, Float rating, Integer difficultyLevel, boolean takeCourseAgain, String comment) {
+    public Rate(String profId, String userId, String courseCode, Float rating, Integer difficultyLevel, boolean takeCourseAgain, String comment, String date) {
         this.profId = profId;
         this.userId = userId;
         this.courseCode = courseCode;
@@ -20,6 +21,7 @@ public class Rate {
         this.difficultyLevel = difficultyLevel;
         this.takeCourseAgain = takeCourseAgain;
         this.comment = comment;
+        this.date = date;
     }
     public Rate() {
     }
@@ -78,5 +80,13 @@ public class Rate {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

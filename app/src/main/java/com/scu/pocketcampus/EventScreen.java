@@ -2,16 +2,15 @@ package com.scu.pocketcampus;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import java.util.HashMap;
 
-public class EventScreen extends AppCompatActivity {
+public class EventScreen extends MainActivity {
 
     public static HashMap<String, String> eventTitleMap = new HashMap<String, String>();
     public static HashMap<String, String> eventNameMap = new HashMap<String, String>();
+
 
     @Override
     public void onBackPressed() {
@@ -24,6 +23,7 @@ public class EventScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
         setTitle("Events");
+
 
         //Title lookup
         eventNameMap.put("Academic School Events", "school_event");
